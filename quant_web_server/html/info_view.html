@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info_view</title>
+    <!-- <script src="https://cdn.bootcss.com/echarts/3.7.1/echarts.min.js"></script> -->
+    <script src="static/javascript/echarts.min.js"></script>
+    <style type="text/css">
+        @import url("static/css/info_view.css");
+    </style>
+</head>
+<body>
+    <div class="basic_info">
+        <font size="4">数据集</font><input id="info_set_name" value="">
+        <button onclick=get_info_title()><font size="4">提交</font></button><br>
+        <font size="4">区间</font><input id="period" value="">
+        <button onclick=period_value()><font size="4">提交</font></button>
+    </div>
+
+    <div class="info_table">
+    </div>
+
+    <div class="feature_list">
+
+        <!-- 选点 -->
+        <font size="4">起点</font><input id="start_point" value="">
+        <button onclick=start_point()><font size="4">提交</font></button><br>
+        <button onclick=change_start_point_pre_3()><font size="4">←x1</font></button>
+        <button onclick=change_start_point_next_3()><font size="4">x1→</font></button>
+        <button onclick=change_start_point_pre_2()><font size="4">←x0.5</font></button>
+        <button onclick=change_start_point_next_2()><font size="4">x0.5→</font></button>
+        <button onclick=change_start_point_pre_1()><font size="4">←0.1</font></button>
+        <button onclick=change_start_point_next_1()><font size="4">0.1→</font></button><br><br>
+
+        <!-- 大点 -->
+        <button onclick=big_agg_trade()><font size="4">big_agg_trade</font></button><br><br>
+
+        <!-- 丰富具体点 -->
+        <font size="4">bubble_size</font><br><input id="bubble_size" value="" size="5">
+        <button onclick=bubble_skip()>skip</button>
+        <button onclick=bubble_bigger()>+</button><button onclick=bubble_smaller()>-</button>
+        
+        <font size="4">ticker_info_around_point</font><br><input id="time_point" value="" size="5">
+        <button onclick=ticker_info_around_point()><font size="4">submit (best_offer)</font></button>
+        <button onclick=bids_orderbook()><font size="4">submit (orderbook)</font></button>
+
+
+
+        <font size="4">support_line_by_time</font><br><input id="support_line_by_time" value="">
+        <button onclick=support_line_by_time()><font size="4">add</font></button>
+        <button onclick=cancel_support_line_by_time()><font size="4">cancel</font></button><br>
+        <font size="4">average_line_by_time</font><br><input id="average_line_by_time" value="">
+        <button onclick=average_line_by_time()><font size="4">add</font></button>
+        <button onclick=cancel_average_line_by_time()><font size="4">cancel</font></button><br>
+        <button onclick=R_aver_line()><font size="4">R_aver_line</font></button><br>
+        <button onclick=m_pq_proportion_line()><font size="4">m_pq_proportion_line</font></button><br>
+
+    </div>
+    <div class="graph">图像</div>
+    <div class="sub_graph_1">子图_1</div>
+    <div class="sub_graph_2">
+        <table border="1" class="bids_table" id="bids_table">
+            <tr>
+                <th>Bids_p</th>
+                <th>Bids_q</th>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+            <tr>
+                <td>b</td>
+                <td>b</td>
+            </tr>
+        </table>
+        <table border="1" class="asks_table" id="asks_table">
+            <tr>
+                <th>Asks_p</th>
+                <th>Asks_q</th>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+            <tr>
+                <td>a</td>
+                <td>a</td>
+            </tr>
+        </table>
+    </div>
+</body>
+    <script>
+        var HttpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() { 
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+        
+                anHttpRequest.open( "GET", aUrl, true );            
+                anHttpRequest.send( null );
+            }
+        }
+        var bubble_size = 10
+        var max_min_start_end = [0,99999,0]
+        var period = 60
+        var x_data = []
+        var new_data = []
+        var scatter_point_set_1 = []
+        var scatter_point_set_2 = []
+        var data_name = ""
+        var main_graph = echarts.init(document.querySelector(".graph"))
+        var sub_grapg_1 = echarts.init(document.querySelector(".sub_graph_1"))
+        var info_table = echarts.init(document.querySelector(".info_table"))
+        var xdata = [1,2,3.5,4,5,6,7,8,9,10]
+        var option = {
+        title: {
+            text: data_name,
+        },
+        xAxis: {
+            minInterval: 0.001
+        },
+        yAxis: {
+            type: 'value'
+        },
+        toolbox: {
+            orient: 'vertical',
+            top: 'center',
+            feature: {
+            dataView: { readOnly: false },
+            restore: {},
+            saveAsImage: {}
+            }
+        },
+        tooltip: {
+                trigger: 'item',
+                axisPointer: {
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+        dataZoom:[{
+            type:"inside"         //详细配置可见echarts官网
+        }]
+        }
+    var option_infotable = {
+        title: {
+            text: data_name,
+        },
+        xAxis : [   //这里有很多的show，必须都设置成不显示
+        {
+            type : 'category',
+            data : [],
+            axisLine: {
+                show: false
+            },
+            splitLine:{
+                show: false
+            },
+            splitArea: {
+                interval: 'auto',
+                show: false
+            }
+        }
+    ],
+    yAxis :  //这里有很多的show，必须都设置成不显示
+        {   show: false,
+            type : 'value',
+            axisLine: {
+                show: false
+            },
+            splitLine:{
+                show: false
+            },
+            axisTick:{
+                show: false
+            },
+        }
+    ,
+        legend: {   //配置legend，这里的data，要对应type为‘bar’的series数据项的‘name’名称，作为图例的说明
+                    data:['abs','volum','average','varance'],
+                    selectedMode:false,  //图例禁止点击
+                    bottom:20,
+                    itemWidth:23,
+                    itemHeight:6,
+                    textStyle: {
+                        color: '#707070',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 11,
+                    },
+                },
+
+        series: [
+            {   title: {                // 仪表盘标题。
+                    show: true,             // 是否显示标题,默认 true。
+                    offsetCenter: [0,"30%"],//相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比。
+                    color: "#333",          // 文字的颜色,默认 #333。
+                    fontSize: 20,           // 文字的字体大小,默认 15。
+                },
+                name:"test",
+                min:-4,
+                max:4,
+                type:"gauge",
+                detail: {
+                    show:false
+                },
+                data:[{
+                    name:"ob_info",
+                    value: 1.2,
+                    itemStyle:{color:'white'}
+                },
+                {   
+                    name:"volum_ratio",
+                    value: -0.6,
+                    itemStyle:{color:'red'}
+                },
+                {
+                    name:"average_ratio",
+                    value: -0.8,
+                    itemStyle:{color:'blue'}
+                },
+                {
+                    name:"varance_ratio",
+                    value: 2.1,
+                    itemStyle:{color:'orange'}
+                },
+                ]
+            },
+            {
+                name:'abs',
+                type:'bar',
+                barWidth: '60%',  //不显示，可以随便设置
+                data:[0],
+                itemStyle: {
+                    normal: {
+                        color: 'white',  //这里的图例要注意，颜色设置和仪表盘的颜色对应起来
+                    }
+                }
+            },
+            {
+                name:'volum',
+                type:'bar',
+                barWidth: '60%',
+                data:[0],
+                itemStyle: {
+                    normal: {
+                        color: 'red',
+                    }
+                }
+            },
+            {
+            name:'average',
+            type:'bar',
+            barWidth: '60%',
+            data:[0],
+            itemStyle: {
+                normal: {
+                    color: 'blue',
+                }
+            }
+        },
+            {
+                name:'varance',
+                type:'bar',
+                barWidth: '60%',
+                data:[0],
+                itemStyle: {
+                    normal: {
+                        color: 'orange',
+                    }
+                }
+            },
+        ]
+        
+    }
+    main_graph.setOption(option)
+    sub_grapg_1.setOption(option_infotable)
+    // info_table.setOption(option_infotable)
+    window.onresize = function(){
+    main_graph.resize();
+
+}
+    </script>
+    <script>
+        function period_value() {
+            period = document.getElementById("period").value
+            get_info_title()
+        }
+    </script>
+    <script src="static/javascript/price_by_second.js"></script>
+    <script src="static/javascript/change_start_point.js"></script>
+    <script src="static/javascript/big_agg_trade.js"></script>
+    <script src="static/javascript/ticker_info_around_point.js"></script>
+    <script src="static/javascript/order_book_update.js"></script>
+    <!-- <script src="static/javascript/big_agg_trade.js"></script> -->
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get_info</title>
+    <style>
+        .form{
+                width:500px;
+                height: 500px;
+                background-color: yellowgreen;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin:-250px 0 0 -250px     
+            }
+            a{text-decoration:none}
+            a:link {color: black; text-decoration:none;}
+            a:active{color: black; } 
+            a:visited {color:black;text-decoration:none;} 
+            a:hover {color: black; text-decoration:underline;}
+            input{width:350px;height:30px}
+    </style>
+</head>
+<body>
+    <center>
+        <font size="14">数据收集</font>
+        <br>
+        <a href="./homepage.html"><font size="5">返回主页</font></a>
+        <form class="form">
+            <br>
+            <font size="6">SYMBOL</font><br><input id="symbol" value=""><br>
+            <font size="6">时长</font><br><input id="time_length" value=""><br>
+            <font size="6">等待更新次数</font><br><input id="time_wait" value=""><br>
+            <br>
+            <button onclick=start_get_info()><font size="6">提交</font></button>
+        </form>
+    </center>
+    <script>
+        var HttpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() { 
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+        
+                anHttpRequest.open( "GET", aUrl, true );            
+                anHttpRequest.send( null );
+            }
+        }
+        function start_get_info(){
+            symbol = document.getElementById("symbol").value
+            time_length = document.getElementById("time_length").value
+            time_wait = document.getElementById("time_wait").value
+            if (symbol == "" || time_length == "" || time_wait == "") {alert("输入信息不全")}
+            else{
+                alert("申请已提交，具体情况请观察后台消息")
+                url_ = "./data_gather/query"+"?symbol="+symbol+"&time_length="+time_length+"&time_wait="+time_wait
+                var client = new HttpClient();
+                client.get(url_, function(response){
+                var json_ = eval('(' + response + ')');
+            })
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

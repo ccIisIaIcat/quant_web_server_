@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+ <html>
+
+  <head>
+
+  <meta charset="utf-8">
+
+  <title>js点击事件</title>
+
+  <script type="text/javascript" src="jquery.js"></script>
+
+  </head>
+
+  <body>
+
+  <ul id="mylist1">
+
+  <li>我喜欢吃</li>
+
+  </ul>
+
+  <ul id="mylist2">
+
+  <li>鸡腿</li>
+
+  <li>薯片</li>
+
+  <li>汉堡</li>
+
+  </ul>
+
+  <button id="btn" class="btn1">添加</button>
+
+  <script>
+
+  window.onload = function(){
+
+  var oBtn = document.getElementById('btn');
+
+  oBtn.onclick = function(){
+
+  var oUl1 = document.getElementById('mylist1');
+
+  var oUl2 = document.getElementById('mylist2'); oUl1.appendChild(oUl2.firstChild);
+
+  } 
+
+  }
+
+  </script>
+
+  </body>
+
+ </html>

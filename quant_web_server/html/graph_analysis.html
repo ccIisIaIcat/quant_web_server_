@@ -1,0 +1,89 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>table</title>
+	<style>
+		table{
+			border:1px solid black;
+			margin: auto;
+		}
+		td{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<a href="./homepage.html"><font size="5">返回主页</font></a>
+		
+	</center>
+</body>
+<script>
+	var HttpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() { 
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+        
+                anHttpRequest.open( "GET", aUrl, true );            
+                anHttpRequest.send( null );
+            }
+        }
+	function get_info() {
+		var client = new HttpClient();
+		url = './data_review/query'
+		client.get(url, function(response) {
+			var json_ = eval('(' + response + ')');
+			table = document.createElement("table");
+			tBody = document.createElement("tBody");
+			tr = document.createElement("tr");
+			tBody.appendChild(tr);
+			td = document.createElement("td");
+			tr.appendChild(td);
+			td.innerHTML="____________________original data____________________"
+			for(var i=0;i<json_.length;i++){
+				tr = document.createElement("tr");
+				tBody.appendChild(tr);
+				for(var j=0;j<1;j++){
+					td = document.createElement("td");
+					tr.appendChild(td);
+					td.innerHTML=json_[i];
+				}
+			}
+			table.appendChild(tBody);
+			document.body.appendChild(table);
+		})
+	}
+
+	function get_info_2() {
+		var client = new HttpClient();
+		url = './data_review/query2'
+		client.get(url, function(response) {
+			var json_ = eval('(' + response + ')');
+			table = document.createElement("table");
+			tBody = document.createElement("tBody");
+			tr = document.createElement("tr");
+			tBody.appendChild(tr);
+			td = document.createElement("td");
+			tr.appendChild(td);
+			td.innerHTML="____________________processed data____________________"
+			for(var i=0;i<json_.length;i++){
+				tr = document.createElement("tr");
+				tBody.appendChild(tr);
+				for(var j=0;j<1;j++){
+					td = document.createElement("td");
+					tr.appendChild(td);
+					td.innerHTML=json_[i];
+				}
+			}
+			table.appendChild(tBody);
+			document.body.appendChild(table);
+		})
+	}
+	
+	get_info()
+	get_info_2()
+</script>
+<html>
