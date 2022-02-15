@@ -1,7 +1,7 @@
 # quant_web_server_
 a demo tool of showing mirco market of virture coin
 
-这是一个用于显示虚拟货币微观市场结构的demo
+这是一个用于显示虚拟货币微观市场结构的demo，后端代码基于golang
 url基于web前端，需要配置mysql和一些其他参数，具体请见配置文件
 
 你目前可以用这个demo完成以下事情：
@@ -19,7 +19,7 @@ url基于web前端，需要配置mysql和一些其他参数，具体请见配置
 
 所有代码均个人所写，可以放心直接使用，有问题加vx：13997171940交流
 
-This is a demo for displaying the micro market structure of virtual money
+This is a demo for displaying the micro market structure of virtual money，The code is based on golang
 The URL is based on the web front end. You need to configure MySQL and some other parameters. See the configuration file for details
 
 You can now use this demo to do the following:
