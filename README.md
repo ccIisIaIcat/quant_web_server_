@@ -5,9 +5,9 @@ a demo tool of showing mirco market of virture coin
 url基于web前端，需要配置mysql和一些其他参数，具体请见配置文件
 
 你目前可以用这个demo完成以下事情：
-  1、获取Bianca实时行情信息（有限深度订单簿，归集交易，最新最优报价，卖方买房数量等），存储在本地mysql
+  1、获取Bianca实时行情信息（有限深度订单簿，归集交易，最新最优报价，买方卖方数量等），存储在本地mysql
   2、对于这些基本信息的预处理以及对订单簿特征的提取
-  3、对某个节点的可视化，包括显示最优买房卖房报价的气泡图，订单簿具体信息，订单簿变化，汇集交易行情均价
+  3、对某个节点的可视化，包括显示最优买方卖方报价的气泡图，订单簿具体信息，订单簿变化，汇集交易行情均价
  
 这些功能都在本地前端（默认127.0.0.1:8080），可在配置文件更改）实现
  
@@ -23,9 +23,9 @@ This is a demo for displaying the micro market structure of virtual money
 The URL is based on the web front end. You need to configure MySQL and some other parameters. See the configuration file for details
 
 You can now use this demo to do the following:
-1. Obtain Bianca real-time market information (limited depth order book, collection transaction, latest and best quotation, number of houses bought by the seller, etc.) and store it in local mysql
+1. Obtain Bianca real-time market information (limited depth order book, centralized transaction, latest and best quotation, number of buyers and sellers, etc.) and store it in local mysql
 2. For the preprocessing of these basic information and the extraction of order book features
-3. The visualization of a node includes the bubble chart showing the optimal quotation for buying and selling houses, the specific information of the order book, the change of the order book, and the collection of the average price of the transaction market
+3. Visualization of a node, including bubble chart showing the best buyer seller quotation, specific information of order book, change of order book, and collection of average price of transaction quotation
 
 These functions are implemented in the local front end (127.0.0.1:8080 by default) and can be changed in the configuration file
 
