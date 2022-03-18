@@ -1,0 +1,20 @@
+[ok_quant:spot_goods_orderbook]2022/03/09 09:37:21 orderbook_info.go:53: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 09:37:21 orderbook_info.go:72: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 09:41:42 orderbook_info.go:53: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 09:41:42 orderbook_info.go:72: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 09:50:29 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 09:50:29 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 09:57:11 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 09:57:11 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 10:01:39 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 10:01:39 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 10:02:22 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 10:02:22 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 10:03:16 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 10:03:16 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 10:03:47 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 10:03:47 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 10:04:48 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 10:04:48 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_orderbook]2022/03/09 10:05:18 orderbook_info.go:54: websocket连接已建立
+[ok_quant:spot_goods_orderbook]2022/03/09 10:05:18 orderbook_info.go:73: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"books","instId":"BTC-USDT"}]}

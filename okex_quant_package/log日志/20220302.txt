@@ -1,0 +1,32 @@
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:25 ticker_info.go:62: websocket连接已建立
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:25 ticker_info.go:90: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"tickers","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:35 ticker_info.go:141: 通道已关闭
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:35 ticker_info.go:105: 订阅已申请取消,取消json: {"op":"unsubscribe","args":[{"channel":"tickers","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:35 ticker_info.go:115: websocket_get_err: read tcp 26.26.26.1:56997->104.18.2.151:8443: use of closed network connection
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:35 ticker_info.go:127: unkown_message_type: -1
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:55:35 ticker_info.go:144: websocket握手已关闭
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:57:33 ticker_info.go:62: websocket连接已建立
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:57:33 ticker_info.go:90: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"tickers","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:57:36 ticker_info.go:141: 通道已关闭
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:57:36 ticker_info.go:105: 订阅已申请取消,取消json: {"op":"unsubscribe","args":[{"channel":"tickers","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_ticker_info]2022/03/02 02:57:36 ticker_info.go:143: websocket握手已关闭
+[ok_quant:spot_goods_ticker_info]2022/03/02 03:54:28 ticker_info.go:62: websocket连接已建立
+[ok_quant:spot_goods_ticker_info]2022/03/02 03:54:28 ticker_info.go:90: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"tickers","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_K_LINE_info]2022/03/02 03:54:28 k_line_info.go:98: websocket连接已建立
+[ok_quant:spot_goods_K_LINE_info]2022/03/02 03:54:28 k_line_info.go:118: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"candle1m","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_ticker_info]2022/03/02 03:54:35 ticker_info.go:141: 通道已关闭
+[ok_quant:spot_goods_ticker_info]2022/03/02 03:54:35 ticker_info.go:105: 订阅已申请取消,取消json: {"op":"unsubscribe","args":[{"channel":"tickers","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_ticker_info]2022/03/02 03:54:35 ticker_info.go:143: websocket握手已关闭
+[ok_quant:spot_goods_K_LINE_info]2022/03/02 03:54:35 k_line_info.go:169: 通道已关闭
+[ok_quant:spot_goods_K_LINE_info]2022/03/02 03:54:35 k_line_info.go:133: 订阅已申请取消,取消json: {"op":"unsubscribe","args":[{"channel":"candle1m","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_K_LINE_info]2022/03/02 03:54:35 k_line_info.go:171: websocket握手已关闭
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:00 mark_price_info.go:49: websocket连接已建立
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:00 mark_price_info.go:68: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"mark-price","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:00 agg_trade_info.go:49: websocket连接已建立
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:00 agg_trade_info.go:68: 订阅已申请,订阅json: {"op":"subscribe","args":[{"channel":"trades","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:05 mark_price_info.go:119: 通道已关闭
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:05 mark_price_info.go:83: 订阅已申请取消,取消json: {"op":"unsubscribe","args":[{"channel":"mark-price","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:05 mark_price_info.go:121: websocket握手已关闭
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:05 agg_trade_info.go:119: 通道已关闭
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:05 agg_trade_info.go:83: 订阅已申请取消,取消json: {"op":"unsubscribe","args":[{"channel":"trades","instId":"BTC-USDT"}]}
+[ok_quant:spot_goods_Agg_trade_info]2022/03/02 07:08:05 agg_trade_info.go:121: websocket握手已关闭
